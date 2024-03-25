@@ -225,10 +225,10 @@
         </div>
         <div class="flashing-text press-start-2p-regular">Aiden Lang</div>
         <div class="nav-items">
-          <div class="nav-item" data-link="#about">About</div>
-          <div class="nav-item" data-link="#projects">Projects</div>
-          <div class="nav-item" data-link="#linkedin">LinkedIn</div>
-          <div class="nav-item" data-link="#contact">Contact</div>
+          <div class="nav-item" data-link="AboutPage.html">About</div>
+          <div class="nav-item" data-link="ProjectsPage.html">Projects</div>
+          <div class="nav-item" data-link="linkedin.com/in/aiden-lang-06770b252">LinkedIn</div>
+          <div class="nav-item" data-link="ContactPage.html">Contact</div>
         </div>
         <div class="instructions"> <style margin-top: 80 px></style>Use the D-Pad to Navigate! (or just click)</div>
       </div>
@@ -277,8 +277,19 @@
       downButton.addEventListener('click', () => handleDirectionButton('down'));
       leftButton.addEventListener('click', () => handleDirectionButton('left'));
       rightButton.addEventListener('click', () => handleDirectionButton('right'));
+
+      navItems.forEach((item) => {
+        item.addEventListener('click', () => {
+          const link = item.getAttribute('data-link');
+          window.location.href = link;
+        });
+      });
+
       redButton.addEventListener('click', () => {
         const activeItem = navItems[activeIndex];
-        window.location.href = activeItem.getAttribute('data-link');
+        const link = activeItem.getAttribute('data-link');
+        window.location.href = link;
       });
     </script>
+  </body>
+</html>
