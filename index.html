@@ -13,7 +13,7 @@
       }
 
       body {
-        background-image: url('../images/starry.gif');
+        background-image: url('../images/newbackground.gif');
         background-color: #000;
         font-family: "Press Start 2P", system-ui;
         text-align: center;
@@ -215,6 +215,58 @@
         text-align: center;
         margin-top: 60px;
       }
+
+  @media screen and (max-width: 1200px) {
+  .gameboy {
+    width: 90%;
+    height: 90vh;
+    padding: 20px;
+  }
+
+  .screen {
+    width: 80%;
+    height: 100vh;
+    padding: 15px;
+  }
+
+  .flashing-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .nav-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+    margin-left: 40px
+  }
+
+  .nav-item {
+    width: 69%;
+    height: 100px;
+    font-size: 13.5px;
+  }
+
+  .buttons {
+    margin-top: 30px;
+  }
+
+  .red-button {
+    width: 80px;
+    height: 80px;
+    margin-left: 30px;
+  }
+
+  .dpad {
+    width: 150px;
+    height: 150px;
+  }
+
+  .instructions {
+    font-size: 12px;
+    margin-top: 40px;
+  }
+}
     </style>
   </head>
   <body>
@@ -227,10 +279,10 @@
         <div class="nav-items">
           <div class="nav-item" data-link="AboutPage.html">About</div>
           <div class="nav-item" data-link="ProjectsPage.html">Projects</div>
-          <div class="nav-item" data-link="linkedin.com/in/aiden-lang-06770b252">LinkedIn</div>
+          <a class="nav-item" href="https://www.linkedin.com/in/aiden-lang-06770b252" target="_blank">LinkedIn</a>
           <div class="nav-item" data-link="ContactPage.html">Contact</div>
         </div>
-        <div class="instructions"> <style margin-top: 80 px></style>Use the D-Pad to Navigate! (or just click)</div>
+        <div class="instructions">Use the D-Pad to Navigate! (or just click)</div>
       </div>
       <div class="buttons">
         <div class="dpad">
@@ -281,14 +333,28 @@
       navItems.forEach((item) => {
         item.addEventListener('click', () => {
           const link = item.getAttribute('data-link');
-          window.location.href = link;
+          if (link) {
+            window.location.href = link;
+          } else {
+            const href = item.getAttribute('href');
+            if (href) {
+              window.open(href, '_blank');
+            }
+          }
         });
       });
 
       redButton.addEventListener('click', () => {
         const activeItem = navItems[activeIndex];
         const link = activeItem.getAttribute('data-link');
-        window.location.href = link;
+        if (link) {
+          window.location.href = link;
+        } else {
+          const href = activeItem.getAttribute('href');
+          if (href) {
+            window.open(href, '_blank');
+          }
+        }
       });
     </script>
   </body>
