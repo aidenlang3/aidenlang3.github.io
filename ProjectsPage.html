@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiden Lang - About</title>
+    <title>Aiden Lang - Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
       body {
@@ -36,6 +36,43 @@
         border: 2px solid #a0e540;
         border-radius: 10px;
       }
+      .thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .play-button:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      .play-button::before {
+        content: "";
+        border-style: solid;
+        border-width: 20px 0 20px 30px;
+        border-color: transparent transparent transparent #fff;
+      }
+
 
       @keyframes bounce {
 
@@ -51,59 +88,78 @@
 
       .content {
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      .text {
-        width: 100%;
-      }
-
-      .text-box {
-        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        background-color: rgb(40, 37, 37);
-        padding: 30px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(160, 229, 64, 0.3);
       }
 
-      .text-box img {
-        width: 40%;
-        height: auto;
+      .project {
+        width: 100%;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(160, 229, 64, 0.3);
+        overflow: hidden;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      }
+
+      .project-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(160, 229, 64, 0.3);
-        margin-left: 30px;
+        display: none;
       }
 
-      .text-box .about-text {
-        width: 55%;
+      .project-details {
+        background-color: rgba(40, 37, 37, 0.8);
+        padding: 30px;
       }
 
-      .about-text {
+      .project-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #a0e540;
+      }
+
+      .project-description {
         font-size: 14px;
         line-height: 1.6;
-        text-align: left;
+        margin-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 5px;
       }
 
-      .skills {
+      .project-description p {
+        margin-bottom: 10px;
+      }
+
+      .project-technologies {
         list-style-type: none;
         padding: 0;
         display: flex;
         flex-wrap: wrap;
         gap: 15px;
-        margin-bottom: 30px;
       }
 
-      .skill {
+      .technology {
         background-color: #a0e540;
         color: #000;
         padding: 8px 16px;
         border-radius: 5px;
         font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .technology:hover {
+        background-color: #8dc63f;
       }
 
       .back-link {
@@ -126,6 +182,40 @@
         margin-right: 10px;
         color: #a0e540;
       }
+
+      @media screen and (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        .header {
+          margin-bottom: 30px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .project-title {
+          font-size: 20px;
+        }
+
+        .project-description {
+          font-size: 12px;
+          padding: 15px;
+        }
+
+        .technology {
+          font-size: 10px;
+          padding: 6px 12px;
+        }
+
+        .back-link {
+          top: 10px;
+          left: 10px;
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -135,38 +225,67 @@
         <h1>Projects</h1>
       </header>
       <div class="content">
-        <div class="text">
-          <div class="text-box">
-            <div class="about-text">
-              <p>Hi there! I'm Aiden Lang, a passionate software developer with a love for creating innovative solutions. I have a strong background in web development and a keen eye for design.</p>
-              <p>I enjoy tackling complex problems and turning ideas into reality through clean, efficient code. When I'm not coding, you can find me exploring the latest technologies and honing my skills.</p>
-            </div>
-            <img src="path/to/image1.jpg" alt="Image 1">
+        <div class="project">
+          <div class="video-container">
+            <video class="project-video" src="videos/Screen Recording 2024-03-27 at 5.20.47 PM.mp4" controls>
+              <source src="videos/Screen Recording 2024-03-27 at 5.20.47 PM.mp4" type="video/mp4">
+            </video>
+            <div class="thumbnail" style="background-image: url('../images/Untitled.png');"></div>
+            <div class="play-button"></div>
           </div>
-          <div class="text-box">
-            <div class="about-text">
-              <p>Throughout my career, I've had the opportunity to work on various exciting projects, collaborating with talented teams to deliver high-quality software solutions. I'm constantly seeking new challenges and opportunities to grow as a developer.</p>
-              <p>If you'd like to know more about my work or discuss potential collaborations, feel free to get in touch. I'm always eager to connect with fellow developers and professionals in the industry.</p>
+          <div class="project-details">
+            <h2 class="project-title">Badger+ 2024 MadData Hackathon Winner</h2>
+            <div class="project-description">
+              <p> Badger+ is an application designed exclusively for UW Madison students, providing personalized academic advice and information. By inputting their Canvas API token, users can receive tailored guidance on their academics, including course recommendations, study tips, and scheduling assistance. </p>
+              <p>Additionally, Badger+ boasts an extensive database of UW Madison clubs, allowing students to explore and learn more about various extracurricular activities on campus.</p>
             </div>
-            <img src="path/to/image2.jpg" alt="Image 2">
+            <ul class="project-technologies">
+              <li class="technology">Flask</li>
+              <li class="technology">HTML/CSS</li>
+              <li class="technology">Bootstrap</li>
+              <li class="technology">Generative AI</li>
+            </ul>
           </div>
-          <div class="text-box">
-            <div class="about-text">
-              <h2>Skills</h2>
-              <ul class="skills">
-                <li class="skill">HTML5</li>
-                <li class="skill">CSS3</li>
-                <li class="skill">JavaScript</li>
-                <li class="skill">React</li>
-                <li class="skill">Node.js</li>
-                <li class="skill">Express</li>
-                <li class="skill">MongoDB</li>
-              </ul>
+        </div>
+        <div class="project">
+          <div class="video-container">
+            <video class="project-video" src="videos/LungNet_Demonstration.mp4" controls>
+              <source src="videos/LungNet_Demonstration.mp4" type="video/mp4">
+            </video>
+            <div class="thumbnail" style="background-image: url('../images/Untitled1.png');"></div>
+            <div class="play-button"></div>
+          </div>
+          <div class="project-details">
+            <h2 class="project-title">AI Lung Imaging: Disease Recognition</h2>
+            <div class="project-description">
+              <p>A machine learning tool that accepts a lungs x-ray and can diagnose COVID-19, Bronchitis, Viral Pneumonia, and Bacterial Pneumonia with 98.6% accuracy.</p>
+              <p>I used Google Cloud Vertex AI for image classifcation and built a PyTorch convolutional network to differentiate between each disease classification. I used PyTorch's built in data augmentation features to improve model accuracy.</p>
             </div>
-            <img src="path/to/image3.jpg" alt="Image 3">
+            <ul class="project-technologies">
+              <li class="technology">PyTorch</li>
+              <li class="technology">Google Cloud Vertex</li>
+              <li class="technology">Convolutional Neural Networks</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      const videoContainers = document.querySelectorAll('.video-container');
+    
+      videoContainers.forEach(container => {
+        const video = container.querySelector('.project-video');
+        const playButton = container.querySelector('.play-button');
+        const thumbnail = container.querySelector('.thumbnail');
+    
+        playButton.addEventListener('click', () => {
+          video.style.display = 'block';
+          playButton.style.display = 'none';
+          thumbnail.style.display = 'none';
+          video.play();
+        });
+      });
+    </script>
   </body>
 </html>

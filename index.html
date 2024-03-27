@@ -207,6 +207,7 @@
       .dpad-button.left {
         grid-column: 1;
         grid-row: 2;
+
       }
 
       .instructions {
@@ -216,57 +217,59 @@
         margin-top: 60px;
       }
 
-  @media screen and (max-width: 1200px) {
-  .gameboy {
-    width: 90%;
-    height: 90vh;
-    padding: 20px;
-  }
+      @media screen and (max-width: 1200px) {
+        .gameboy {
+          width: 90%;
+          height: 83vh;
+          padding: 20px;
+        }
 
-  .screen {
-    width: 80%;
-    height: 100vh;
-    padding: 15px;
-  }
+        .screen {
+          width: 80%;
+          height: 100vh;
+          padding: 15px;
+          margin-bottom: 0px;
+        }
 
-  .flashing-text {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
+        .flashing-text {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
 
-  .nav-items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 30px;
-    margin-left: 40px
-  }
+        .nav-items {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          margin-top: 30px;
+          margin-left: 40px;
+        }
 
-  .nav-item {
-    width: 69%;
-    height: 100px;
-    font-size: 13.5px;
-  }
+        .nav-item {
+          width: 69%;
+          height: 100px;
+          font-size: 13.5px;
+        }
 
-  .buttons {
-    margin-top: 30px;
-  }
+        .buttons {
+          margin-top: 30px;
+        }
 
-  .red-button {
-    width: 80px;
-    height: 80px;
-    margin-left: 30px;
-  }
+        .red-button {
+          width: 80px;
+          height: 80px;
+          margin-left: 30px;
+        }
 
-  .dpad {
-    width: 150px;
-    height: 150px;
-  }
+        .dpad {
+          width: 150px;
+          height: 150px;
+        }
 
-  .instructions {
-    font-size: 12px;
-    margin-top: 40px;
-  }
-}
+        .instructions {
+          font-size: 12px;
+          margin-top: 40px;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -294,6 +297,7 @@
         <div class="red-button"></div>
       </div>
     </div>
+    <div class="custom-cursor"></div>
     <script>
       const navItems = document.querySelectorAll('.nav-item');
       const upButton = document.querySelector('.dpad-button.up');
@@ -355,6 +359,22 @@
             window.open(href, '_blank');
           }
         }
+      });
+
+      const customCursor = document.querySelector('.custom-cursor');
+
+      document.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        customCursor.style.transform = `translate(${x}px, ${y}px)`;
+      });
+
+      document.addEventListener('mousedown', () => {
+        customCursor.style.transform += ' scale(0.8)';
+      });
+
+      document.addEventListener('mouseup', () => {
+        customCursor.style.transform = customCursor.style.transform.replace(' scale(0.8)', '');
       });
     </script>
   </body>

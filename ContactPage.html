@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiden Lang - About</title>
+    <title>Aiden Lang - Contact</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
       body {
@@ -38,12 +38,9 @@
       }
 
       @keyframes bounce {
-
-        0%,
-        100% {
+        0%, 100% {
           transform: translateY(0);
         }
-
         50% {
           transform: translateY(-10px);
         }
@@ -51,59 +48,34 @@
 
       .content {
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      .text {
-        width: 100%;
-      }
-
-      .text-box {
-        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+      }
+
+      .contact-info {
         background-color: rgb(40, 37, 37);
         padding: 30px;
         margin-bottom: 30px;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(160, 229, 64, 0.3);
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
       }
 
-      .text-box img {
-        width: 40%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(160, 229, 64, 0.3);
-        margin-left: 30px;
-      }
-
-      .text-box .about-text {
-        width: 55%;
-      }
-
-      .about-text {
+      .contact-info p {
         font-size: 14px;
         line-height: 1.6;
-        text-align: left;
+        margin-bottom: 20px;
       }
 
-      .skills {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin-bottom: 30px;
+      .contact-info a {
+        color: #a0e540;
+        text-decoration: none;
       }
 
-      .skill {
-        background-color: #a0e540;
-        color: #000;
-        padding: 8px 16px;
-        border-radius: 5px;
-        font-size: 12px;
+      .contact-info a:hover {
+        text-decoration: underline;
       }
 
       .back-link {
@@ -126,6 +98,34 @@
         margin-right: 10px;
         color: #a0e540;
       }
+
+      @media screen and (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        .header {
+          margin-bottom: 30px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .contact-info {
+          padding: 20px;
+        }
+
+        .contact-info p {
+          font-size: 12px;
+        }
+
+        .back-link {
+          top: 0px;
+          left: 0px;
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -135,36 +135,10 @@
         <h1>Contact</h1>
       </header>
       <div class="content">
-        <div class="text">
-          <div class="text-box">
-            <div class="about-text">
-              <p>Hi there! I'm Aiden Lang, a passionate software developer with a love for creating innovative solutions. I have a strong background in web development and a keen eye for design.</p>
-              <p>I enjoy tackling complex problems and turning ideas into reality through clean, efficient code. When I'm not coding, you can find me exploring the latest technologies and honing my skills.</p>
-            </div>
-            <img src="path/to/image1.jpg" alt="Image 1">
-          </div>
-          <div class="text-box">
-            <div class="about-text">
-              <p>Throughout my career, I've had the opportunity to work on various exciting projects, collaborating with talented teams to deliver high-quality software solutions. I'm constantly seeking new challenges and opportunities to grow as a developer.</p>
-              <p>If you'd like to know more about my work or discuss potential collaborations, feel free to get in touch. I'm always eager to connect with fellow developers and professionals in the industry.</p>
-            </div>
-            <img src="path/to/image2.jpg" alt="Image 2">
-          </div>
-          <div class="text-box">
-            <div class="about-text">
-              <h2>Skills</h2>
-              <ul class="skills">
-                <li class="skill">HTML5</li>
-                <li class="skill">CSS3</li>
-                <li class="skill">JavaScript</li>
-                <li class="skill">React</li>
-                <li class="skill">Node.js</li>
-                <li class="skill">Express</li>
-                <li class="skill">MongoDB</li>
-              </ul>
-            </div>
-            <img src="path/to/image3.jpg" alt="Image 3">
-          </div>
+        <div class="contact-info">
+          <p>Email: <a href="mailto:ajlang5@wisc.edu">ajlang5@wisc.edu</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1 (908) 323-1383</a></p>
+          <p>GitHub: <a href="https://github.com/aidenlang3" target="_blank">github.com/aidenlang3</a></p>
         </div>
       </div>
     </div>
